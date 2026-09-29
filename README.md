@@ -20,7 +20,7 @@ Pin: `5ff08954c5ada4c8fd037a8d38cbb57acbf0dd01` (`v4.1.3`)
 Eigen-only build (no MKL/OpenBLAS and no `-march=native`):
 
 ```bash
-BGEN_PATH=/path/to/bgen/v1.1.7 HAS_BOOST_IOSTREAM=1 make -j"$(nproc)"
+make BGEN_PATH=/path/to/bgen/v1.1.7 HAS_BOOST_IOSTREAM=1 -j"$(nproc)"
 ```
 
 The packaged source intentionally excludes compiled binaries and object/archive files. See `opti2x/REPRODUCE.md` for the pinned patch, fixture contract, correctness oracle, and timing procedure.
