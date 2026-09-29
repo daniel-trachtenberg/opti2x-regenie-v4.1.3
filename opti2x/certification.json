@@ -1,0 +1,80 @@
+{
+  "schema": "opti2x.certification.v0",
+  "status": "QUALIFIED",
+  "terminal_recommendation": "QUALIFIED",
+  "contract_id": "regenie-v4.1.3-serial-eigen-step1-qt-n1000-m2293-v1",
+  "fixture_revision": 1,
+  "claim_scope": "fixture-scoped: >=2x on serial-step1-qt-wgr N=1000 M=2293 under Eigen-only serial envelope; NOT package-wide; H1-only (no -march=native)",
+  "candidate": {
+    "id": "H1_llt_per_lambda",
+    "path": "experiments/H1_llt_per_lambda/",
+    "worktree_pushable": "experiments/H1_llt_per_lambda/worktree/",
+    "composition": "H1-only (LLT per \u03bb in ridge_level_0)",
+    "h3_included": false,
+    "h3_status": "not_credited_primary_portable",
+    "binary_sha256": "4d3ecff43a46a079f6e869d22ff81f175db7c72c698a6461d0f074e29f3c2d8d",
+    "patch_id": "deliverable/optimized.patch",
+    "patch_sha256": "bed024569927e08dc815049450f31f63c86ba5c42c3c0fc65b7cfe19e1b0986f",
+    "fairness_patch": null,
+    "pin_commit": "5ff08954c5ada4c8fd037a8d38cbb57acbf0dd01"
+  },
+  "baseline": {
+    "binary_sha256": "4bd69197dead7415860b4e066cffb0d7a974fa3f655076fd130921131383d3d7",
+    "build_command": "BGEN_PATH=.../deps/bgen/v1.1.7 HAS_BOOST_IOSTREAM=1 make -j$(nproc)",
+    "median_wall_seconds_formal_N30": 1.95,
+    "artifact_path": "source/regenie"
+  },
+  "hashes": {
+    "oracle_fit_1_loco": "a6407f4af47428dfb556f7c82edccd7c7ea81962dad9ca4806758e32fdb7b13c",
+    "contract_optimization_yaml": "21163edcd539a3ddbec0af404d3b90cfd07bd0324cd850509e86b7116cfc3a69",
+    "pin_commit": "5ff08954c5ada4c8fd037a8d38cbb57acbf0dd01",
+    "fixture_bed": "d570814fc4554fbe55257f8ba846d0be56a7664bea8504db5447e88e7f2cc113",
+    "fixture_bim": "d269897edb870170c217d42cd802994b1e1a89877382f4ee51e7c955e5fa1d6b",
+    "fixture_fam": "6050db63a66b52675efaa4a614617ad626bf230e428aec0f25154f8d6b8753de",
+    "fixture_pheno": "c229fd2370dfc30eb4e491f0cc17d12103fe0fadf88bf95573bf7e3333dfa873",
+    "fixture_covar": "c94e86ee2a9d0666b5fc4d79a130038c6ce50cea8c615a9d478cfc1943f33d4b"
+  },
+  "correctness": {
+    "oracle_loco_byte_identical": true,
+    "oracle_predlist_basename_normalized": true,
+    "oracle_pair_runs": 30,
+    "oracle_warmup_nlwp_pass": true,
+    "adversarial_dev_oracle_x3": true,
+    "adversarial_example_cross_binary": true,
+    "adversarial_alt_seed_cross_binary": true,
+    "nlwp_observed": 1
+  },
+  "adversarial": {
+    "path": "research/ADVERSARIAL_H1.md",
+    "verdict": "ACCEPT"
+  },
+  "performance": {
+    "n": 30,
+    "warmup": 1,
+    "pair_seed": 20260929,
+    "parent_median_wall_seconds": 1.975,
+    "child_median_wall_seconds": 0.63,
+    "median_speedup_from_medians": 3.134920634920635,
+    "median_paired_speedup": 3.1023065476190474,
+    "min_paired_speedup": 2.731707317073171,
+    "lower_95_speedup": 3.053595048078354,
+    "child_faster_count": 30,
+    "fraction_faster": 1.0,
+    "ge_2x_median": true,
+    "ge_2x_lower_95": true,
+    "estimator": "one-sided Student-t 95% lower bound on mean(log(baseline/h1)); report exp(lower)",
+    "stats_path": "benchmarks/certification_H1/stats.json",
+    "timing_dir": "benchmarks/certification_H1/"
+  },
+  "limitations": [
+    "fixture-scoped claim only \u2014 not package-wide 2\u00d7 for regenie",
+    "H1 candidate wall \u22480.63s \u226a contract minimum_case_seconds:1 (baseline case still \u22651s; lower_95 stable so fixture not grown)",
+    "NLWP=1 observed under taskset+env caps; cgroup-v2 pids.max not attested",
+    "byte-identical LOCO observed on exercised QT K-fold paths; LLT requires \u03bb>0 (default grid OK)",
+    "H3 -march=native NOT credited in this QUALIFIED package (host-ISA)",
+    "agent-attested on this host \u2014 not an independent external evaluator appliance",
+    "LOOCV / BT / Cox paths not re-certified here"
+  ],
+  "packaged_at_pt": "2026-09-29 1:40 PM PT",
+  "packaged_at_utc": "2026-09-29T20:40:38Z"
+}

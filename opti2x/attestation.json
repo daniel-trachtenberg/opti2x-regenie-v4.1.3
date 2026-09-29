@@ -1,0 +1,31 @@
+{
+  "schema": "opti2x.attestation.v0",
+  "status": "QUALIFIED",
+  "contract_id": "regenie-v4.1.3-serial-eigen-step1-qt-n1000-m2293-v1",
+  "immutable_digests": {
+    "certification_json_canonical_sha256": "f396b4bd4160a5d2d39a1d2d30295cbeea8fde1a4cf13e6ac92711890044c82c",
+    "candidate_binary_sha256": "4d3ecff43a46a079f6e869d22ff81f175db7c72c698a6461d0f074e29f3c2d8d",
+    "optimized_patch_sha256": "bed024569927e08dc815049450f31f63c86ba5c42c3c0fc65b7cfe19e1b0986f",
+    "baseline_binary_sha256": "4bd69197dead7415860b4e066cffb0d7a974fa3f655076fd130921131383d3d7",
+    "oracle_fit_1_loco_sha256": "a6407f4af47428dfb556f7c82edccd7c7ea81962dad9ca4806758e32fdb7b13c",
+    "pin_commit": "5ff08954c5ada4c8fd037a8d38cbb57acbf0dd01",
+    "contract_yaml_sha256": "21163edcd539a3ddbec0af404d3b90cfd07bd0324cd850509e86b7116cfc3a69"
+  },
+  "performance_quoted": {
+    "median_speedup_from_medians": 3.134920634920635,
+    "lower_95_speedup": 3.053595048078354,
+    "n": 30
+  },
+  "limitations_digest": [
+    "fixture_scoped_not_package_wide",
+    "h1_only_no_march_native",
+    "candidate_wall_sub_1s_baseline_ge_1s",
+    "nlwp_1_observed_only",
+    "agent_attested_this_host"
+  ],
+  "evaluator_note": "Agent-attested QUALIFIED packaging for fixture-scoped contract regenie-v4.1.3-serial-eigen-step1-qt-n1000-m2293-v1. Primary credited stack is H1-only (LLT per \u03bb). N=30 paired: median\u22483.135\u00d7, lower_95\u22483.054\u00d7; oracle PASS; NLWP=1; adversarial ACCEPT. H3 (-march=native) deliberately excluded from primary claim. Do not market as package-wide 2\u00d7.",
+  "attested_at_utc": "2026-09-29T20:40:38Z",
+  "attested_at_pt": "2026-09-29 1:40 PM PT",
+  "attestor": "opti2x-wave2-cert-agent",
+  "attestation_document_sha256": "8f89046956f8ba4cae54b441c20912d76a5886b889715969b7b73f2c7f16c564"
+}

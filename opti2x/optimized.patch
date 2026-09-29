@@ -1,0 +1,31 @@
+diff --git a/src/Step1_Models.cpp b/src/Step1_Models.cpp
+index d70ea35..eea4c01 100644
+--- a/src/Step1_Models.cpp
++++ b/src/Step1_Models.cpp
+@@ -481,21 +481,19 @@ void ridge_level_0(const int& block, struct in_files* files, struct param* param
+   }
+ 
+   uint32_t cum_size_folds = 0;
++  // OPTI2X H1: per-λ LLT solve of (ww1 + λI) β = (GTY - GtY[i]) instead of one eig + diagonal
+   for(int i = 0; i < params->cv_folds; ++i ) {
+     // assign masking within folds
+     masked_in_folds[i] = pheno_data->masked_indivs.block(cum_size_folds, 0, params->cv_sizes(i), pheno_data->masked_indivs.cols());
+ 
+     ww1 = l0->GGt - l0->G_folds[i];
+-    SelfAdjointEigenSolver<MatrixXd> eig(ww1);
+-    vmat = eig.eigenvectors();
+-    dvec = eig.eigenvalues();
+-    //if(i == 0)sout << ww1 << endl;
+-    ww2 = vmat.transpose() * (l0->GTY - l0->GtY[i]);
++    // RHS shared across λ for this fold
++    ww2 = l0->GTY - l0->GtY[i];
+ 
+     for(int j = 0; j < params->n_ridge_l0; ++j ) {
+ 
+-      // b = U (D+sI)^(-1) U^t GtY
+-      beta = vmat * (dvec.array() + params->lambda(j)).inverse().matrix().asDiagonal() * ww2;
++      // b = (ww1 + λ I)^{-1} GtY_oos   via LLT (SPD for λ>0)
++      beta = (ww1 + params->lambda(j) * ident_l0).llt().solve(ww2);
+ 
+       // save beta for each phenotype (only when using out-of-sample pred)
+       if(!params->within_sample_l0 && params->print_block_betas)

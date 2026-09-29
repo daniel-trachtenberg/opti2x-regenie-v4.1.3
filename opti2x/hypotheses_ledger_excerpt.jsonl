@@ -1,0 +1,7 @@
+{"id": "H13", "status": "probe", "note": "eig_frac\u22480.985 inside ridge_level_0"}
+{"id": "H1", "status": "ACCEPT", "credited": true, "speedup_wave1_approx": 3.12, "patch": "experiments/H1_llt_per_lambda/patch.diff", "note": "LLT per \u03bb; oracle byte-identical"}
+{"id": "H2", "status": "REJECT", "credited": false, "note": "Woodbury ~1.0\u00d7"}
+{"id": "H3", "status": "ACCEPT_not_credited_primary", "credited": false, "note": "-march=native host-ISA; not in QUALIFIED primary stack"}
+{"id": "H4", "status": "REJECT_marginal", "credited": false, "note": "~1.02\u20131.04\u00d7"}
+{"id": "H15", "status": "REJECT", "credited": false, "note": "~1.0\u00d7"}
+{"id": "H1+H3", "status": "ACCEPT_stack_not_primary", "credited": false, "note": "~8.5\u00d7 but native ISA; not primary portable claim"}
