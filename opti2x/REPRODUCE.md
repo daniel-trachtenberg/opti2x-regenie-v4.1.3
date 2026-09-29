@@ -34,7 +34,7 @@ Fairness patch: **none**.
 External BGEN v1.1.7 required (see `locks/BGEN.txt` / `deps/bgen/v1.1.7`). Eigen is vendored. **Do not** set `MKLROOT` / `OPENBLAS_ROOT`. **Do not** add `-march=native` for this QUALIFIED binary.
 
 ```bash
-BGEN_PATH=/path/to/bgen/v1.1.7 HAS_BOOST_IOSTREAM=1 make -j$(nproc)
+make BGEN_PATH=/path/to/bgen/v1.1.7 HAS_BOOST_IOSTREAM=1 -j$(nproc)
 sha256sum regenie
 # expected on this host/toolchain: 4d3ecff43a46a079f6e869d22ff81f175db7c72c698a6461d0f074e29f3c2d8d
 ```
